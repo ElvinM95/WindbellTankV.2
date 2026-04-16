@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Elvin\\Documents\\E\\MyHub\\WindbellTankV.2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2C81760B-C13E-4B91-BAA8-8982FDF2AA3A}|WindbellTank\\WindbellTank.csproj|c:\\users\\elvin\\documents\\e\\myhub\\windbelltankv.2\\windbelltank\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C81760B-C13E-4B91-BAA8-8982FDF2AA3A}|WindbellTank\\WindbellTank.csproj|solutionrelative:windbelltank\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Elvin\\Documents\\E\\MyHub\\WindbellTankV.2\\WindbellTank\\Program.cs",
+              "RelativeDocumentMoniker": "WindbellTank\\Program.cs",
+              "ToolTip": "C:\\Users\\Elvin\\Documents\\E\\MyHub\\WindbellTankV.2\\WindbellTank\\Program.cs",
+              "RelativeToolTip": "WindbellTank\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T08:27:38.027Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
