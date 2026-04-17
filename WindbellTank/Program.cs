@@ -229,11 +229,11 @@ namespace WindbellTank
                                 YanacaqCode = ISNULL(@YanacaqCode, YanacaqCode),
                                 TankCapacity = @TankCapacity,
                                 TankLength = @TankLength,
+                                CurrentVolume = @CurrentVolume,
                                 waterleve = @WaterLevel,
                                 temperature = @Temperature,
                                 watervolume = @WaterVolume,
                                 tcvolume = @TcVolume,
-                                capacity = @Capacity,
                                 ullage = @Ullage,
                                 sensorStatus = @SensorStatus,
                                 error = @Error,
@@ -242,8 +242,8 @@ namespace WindbellTank
                         END
                         ELSE
                         BEGIN
-                            INSERT INTO TankConfig (TankOid, YanacaqCode, TankCapacity, TankLength, waterleve, temperature, watervolume, tcvolume, capacity, ullage, sensorStatus, error, ModificationDate, LastUpdate)
-                            VALUES (@TankOid, @YanacaqCode, @TankCapacity, @TankLength, @WaterLevel, @Temperature, @WaterVolume, @TcVolume, @Capacity, @Ullage, @SensorStatus, @Error, GETDATE(), GETDATE());
+                            INSERT INTO TankConfig (TankOid, YanacaqCode, TankCapacity, TankLength, CurrentVolume, waterleve, temperature, watervolume, tcvolume, ullage, sensorStatus, error, ModificationDate, LastUpdate)
+                            VALUES (@TankOid, @YanacaqCode, @TankCapacity, @TankLength, @CurrentVolume, @WaterLevel, @Temperature, @WaterVolume, @TcVolume, @Ullage, @SensorStatus, @Error, GETDATE(), GETDATE());
                         END";
 
                     int successCount = 0;
@@ -268,13 +268,13 @@ namespace WindbellTank
                                     }
                                     cmd.Parameters.AddWithValue("@YanacaqCode", yanacaqCodeVal);
 
-                                    cmd.Parameters.AddWithValue("@TankCapacity", (object)tank.volume ?? DBNull.Value);
+                                    cmd.Parameters.AddWithValue("@TankCapacity", (object)tank.capacity ?? DBNull.Value);
                                     cmd.Parameters.AddWithValue("@TankLength", (object)tank.oil_level ?? DBNull.Value);
+                                    cmd.Parameters.AddWithValue("@CurrentVolume", (object)tank.volume ?? DBNull.Value);
                                     cmd.Parameters.AddWithValue("@WaterLevel", (object)tank.water_level ?? DBNull.Value);
                                     cmd.Parameters.AddWithValue("@Temperature", (object)tank.temperature ?? DBNull.Value);
                                     cmd.Parameters.AddWithValue("@WaterVolume", (object)tank.water_volume ?? DBNull.Value);
                                     cmd.Parameters.AddWithValue("@TcVolume", (object)tank.tc_volume ?? DBNull.Value);
-                                    cmd.Parameters.AddWithValue("@Capacity", (object)tank.capacity ?? DBNull.Value);
                                     cmd.Parameters.AddWithValue("@Ullage", (object)tank.Ullage ?? DBNull.Value);
                                     cmd.Parameters.AddWithValue("@SensorStatus", (object)tank.sensor_status ?? "");
 

@@ -41,3 +41,4 @@ C:\Users\Elvin\Documents\E\MyHub\WindbellTankV.2\WindbellTank\obj\Debug\net8.0\r
 C:\Users\Elvin\Documents\E\MyHub\WindbellTankV.2\WindbellTank\obj\Debug\net8.0\WindbellTank.pdb
 C:\Users\Elvin\Documents\E\MyHub\WindbellTankV.2\WindbellTank\obj\Debug\net8.0\WindbellTank.genruntimeconfig.cache
 C:\Users\Elvin\Documents\E\MyHub\WindbellTankV.2\WindbellTank\obj\Debug\net8.0\ref\WindbellTank.dll
+C:\Users\Elvin\Documents\E\MyHub\WindbellTankV.2\WindbellTank\obj\Debug\net8.0\WindbellTank.sourcelink.json
