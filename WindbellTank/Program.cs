@@ -265,16 +265,16 @@ namespace WindbellTank
                                     int yanacaqCodeVal = 0;
                                     if (!string.IsNullOrEmpty(tank.product_code))
                                     {
-                                        switch (tank.product_code)
+                                        switch (tank.product_code.Trim().ToLowerInvariant())
                                         {
-                                            case "Dizel": yanacaqCodeVal = 1; break;
-                                            case "AI-92": yanacaqCodeVal = 2; break;
-                                            case "Premium": yanacaqCodeVal = 3; break;
-                                            case "M.Qaz": yanacaqCodeVal = 4; break;
-                                            case "Super": yanacaqCodeVal = 5; break;
-                                            case "Metan": yanacaqCodeVal = 6; break;
-                                            case "Propan": yanacaqCodeVal = 7; break;
-                                            case "Dizel*": yanacaqCodeVal = 8; break;
+                                            case "dizel": yanacaqCodeVal = 1; break;
+                                            case "ai-92": yanacaqCodeVal = 2; break;
+                                            case "premium": yanacaqCodeVal = 3; break;
+                                            case "m.qaz": yanacaqCodeVal = 4; break;
+                                            case "super": yanacaqCodeVal = 5; break;
+                                            case "metan": yanacaqCodeVal = 6; break;
+                                            case "propan": yanacaqCodeVal = 7; break;
+                                            case "dizel*": yanacaqCodeVal = 8; break;
                                             default: yanacaqCodeVal = 0; break;
                                         }
                                     }
