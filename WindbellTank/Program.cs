@@ -226,7 +226,8 @@ namespace WindbellTank
                         BEGIN
                             UPDATE TankConfig
                             SET 
-                                YanacaqCode = ISNULL(@YanacaqCode, YanacaqCode),
+                                YanacaqCode = @YanacaqCode,
+                                TankFyelName = @TankFyelName,
                                 TankCapacity = @TankCapacity,
                                 TankLength = @TankLength,
                                 CurrentVolume = @CurrentVolume,
@@ -242,8 +243,8 @@ namespace WindbellTank
                         END
                         ELSE
                         BEGIN
-                            INSERT INTO TankConfig (TankOid, YanacaqCode, TankCapacity, TankLength, CurrentVolume, waterleve, temperature, watervolume, tcvolume, ullage, sensorStatus, error, ModificationDate, LastUpdate)
-                            VALUES (@TankOid, @YanacaqCode, @TankCapacity, @TankLength, @CurrentVolume, @WaterLevel, @Temperature, @WaterVolume, @TcVolume, @Ullage, @SensorStatus, @Error, GETDATE(), GETDATE());
+                            INSERT INTO TankConfig (TankOid, YanacaqCode, TankFyelName, TankCapacity, TankLength, CurrentVolume, waterleve, temperature, watervolume, tcvolume, ullage, sensorStatus, error, ModificationDate, LastUpdate)
+                            VALUES (@TankOid, @YanacaqCode, @TankFyelName, @TankCapacity, @TankLength, @CurrentVolume, @WaterLevel, @Temperature, @WaterVolume, @TcVolume, @Ullage, @SensorStatus, @Error, GETDATE(), GETDATE());
                         END";
 
                     int successCount = 0;
@@ -261,12 +262,25 @@ namespace WindbellTank
                                 {
                                     cmd.Parameters.AddWithValue("@TankOid", tank.tank_id);
 
-                                    object yanacaqCodeVal = DBNull.Value;
-                                    if (!string.IsNullOrEmpty(tank.product_code) && int.TryParse(tank.product_code, out int pCode))
+                                    int yanacaqCodeVal = 0;
+                                    if (!string.IsNullOrEmpty(tank.product_code))
                                     {
-                                        yanacaqCodeVal = pCode;
+                                        switch (tank.product_code)
+                                        {
+                                            case "Dizel": yanacaqCodeVal = 1; break;
+                                            case "AI-92": yanacaqCodeVal = 2; break;
+                                            case "Premium": yanacaqCodeVal = 3; break;
+                                            case "M.Qaz": yanacaqCodeVal = 4; break;
+                                            case "Super": yanacaqCodeVal = 5; break;
+                                            case "Metan": yanacaqCodeVal = 6; break;
+                                            case "Propan": yanacaqCodeVal = 7; break;
+                                            case "Dizel*": yanacaqCodeVal = 8; break;
+                                            default: yanacaqCodeVal = 0; break;
+                                        }
                                     }
+                                    
                                     cmd.Parameters.AddWithValue("@YanacaqCode", yanacaqCodeVal);
+                                    cmd.Parameters.AddWithValue("@TankFyelName", (object)tank.product_code ?? DBNull.Value);
 
                                     cmd.Parameters.AddWithValue("@TankCapacity", (object)tank.capacity ?? DBNull.Value);
                                     cmd.Parameters.AddWithValue("@TankLength", (object)tank.oil_level ?? DBNull.Value);
